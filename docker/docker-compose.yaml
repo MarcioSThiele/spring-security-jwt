@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  db:
+    container_name: postgres-jwt-security
+    restart: always
+    image: postgres:latest
+    volumes:
+      - "pgdata:/var/lib/postgresql/data"
+      - .:/usr/src/app
+    ports: 
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres-jwt-security
+volumes:
+  pgdata:
